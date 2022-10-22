@@ -460,6 +460,9 @@ body {
                          "datos";
     grid-template-columns: 1fr;
   }
+  .layout-compra{
+    padding: 0;
+  }
   .logo{
     margin: 0;
   }
