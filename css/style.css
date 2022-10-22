@@ -463,6 +463,14 @@ body {
   .layout-compra{
     padding: 0;
   }
+  .datos-personales{
+    margin: 0;
+    padding: 5px;
+  }
+  .compra-productos{
+    margin: 0;
+    padding: 5px;
+  }
   .logo{
     margin: 0;
   }
