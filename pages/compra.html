@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/icono.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Finalizar Compra</title>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">
+            <img src="../img/logo.png" alt="logo">
+        </a>
+    </header>
+    <div class="layout-compra">
+        <h2>Finalizar Compra</h2>
+        <div class="grid-layout-compra">
+            <div class="compra-productos">
+                <div class="cart-content">
+                    <!-- contenido dinamico del js -->
+                </div>
+                <div class="total">
+                    <div class="total-title">Total: $</div>
+                    <div class="total-price">$0</div>
+                </div>
+            </div>
+            <div class="datos-personales">
+                <h3>Datos de Personales</h3>
+                <form action="" class="form-datos">
+                    <label for="">Nombre</label>
+                    <input type="text" name="" id="input-nombre" required>
+                    <label for="">Correo</label>
+                    <input type="email" name="" id="input-correo" required>
+                    <label for="">Telefono</label>
+                    <input type="text" name="" id="input-telefono" required>
+                    <label for="">Direccion</label>
+                    <input type="text" name="" id="input-direccion" required>
+                    <h3>Datos de la tarjeta</h3>
+                    <label for="">Numero de tarjeta</label>
+                    <input type="text" name="" id="input-tarjeta" required>
+                    <label for="">Nombre de titular</label>
+                    <input type="text" name="" id="input-titular" required>
+                    <label for="">Fecha de caducidad</label>
+                    <input type="date" name="" id="input-caducidad" required>
+                    <label for="">CVC</label>
+                    <input type="text" name="" id="input-cvc" required>
+                    <input type="submit" value="Finalizar Compra" id="input-submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="layout-factura">
+        <!-- contenido dinamico desde js -->
+    </div>
+    <script src="../js/compra.js"></script>
+</body>
+</html>
