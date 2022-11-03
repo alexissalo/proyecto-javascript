@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1,
+    "nombre": "pizza muzzarella",
+    "precio": 700,
+    "imagen": "../img/pizza-muzarella.png",
+    "categoria": "pizzas"
+  },
+  {
+    "id": 2,
+    "nombre": "pizza napolitana",
+    "precio": 750,
+    "imagen": "../img/pizza-napo.png",
+    "categoria": "pizzas"
+  },
+  {
+    "id": 3,
+    "nombre": "pizza fugazzeta",
+    "precio": 780,
+    "imagen": "../img/pizza-Fugazzeta.png",
+    "categoria": "pizzas"
+  },
+  {
+    "id": 4,
+    "nombre": "pizza jamon",
+    "precio": 780,
+    "imagen": "../img/Pizza-Jamon.png",
+    "categoria": "pizzas"
+  },
+  {
+    "id": 5,
+    "nombre": "hamburguesa simple",
+    "precio": 800,
+    "imagen": "../img/hambur-simple.png",
+    "categoria": "hamburguesas"
+  },
+  {
+    "id": 6,
+    "nombre": "hamburguesa doble",
+    "precio": 850,
+    "imagen": "../img/hambur-doble.png",
+    "categoria": "hamburguesas"
+  },
+  {
+    "id": 7,
+    "nombre": "hamburguesa criolla",
+    "precio": 1000,
+    "imagen": "../img/hambur-criolla.png",
+    "categoria": "hamburguesas"
+  },
+  {
+    "id": 8,
+    "nombre": "hamburguesa gran cheddar",
+    "precio": 820,
+    "imagen": "../img/hambur-gran-cheddar.png",
+    "categoria": "hamburguesas"
+  },
+  {
+    "id": 9,
+    "nombre": "empanada de carne",
+    "precio": 650,
+    "imagen": "../img/empanada-carne.png",
+    "categoria": "empanadas"
+  },
+  {
+    "id": 10,
+    "nombre": "empanada de jamon y queso",
+    "precio": 650,
+    "imagen": "../img/Empanada-Jamon-y-Queso.png",
+    "categoria": "empanadas"
+  },
+  {
+    "id": 11,
+    "nombre": "empanada arabe",
+    "precio": 650,
+    "imagen": "../img/empanada-arabes.png",
+    "categoria": "empanadas"
+  },
+  {
+    "id": 12,
+    "nombre": "empanada de pollo",
+    "precio": 650,
+    "imagen": "../img/empanada-de-pollo.png",
+    "categoria": "empanadas"
+  },
+  {
+    "id": 13,
+    "nombre": "sanguche de lomo",
+    "precio": 550,
+    "imagen": "../img/sanguche-Lomo.png",
+    "categoria": "sanguches"
+  },
+  {
+    "id": 14,
+    "nombre": "sanguche de milanesa",
+    "precio": 550,
+    "imagen": "../img/sanguche-Mila.png",
+    "categoria": "sanguches"
+  },
+  {
+    "id": 15,
+    "nombre": "sanguche de pollo",
+    "precio": 550,
+    "imagen": "../img/sanguche-Pollo.png",
+    "categoria": "sanguches"
+  },
+  {
+    "id": 16,
+    "nombre": "sanguche vegetariano",
+    "precio": 500,
+    "imagen": "../img/sanguche-Vegetal.png",
+    "categoria": "sanguches"
+  },
+  {
+    "id": 17,
+    "nombre": "papas fritas",
+    "precio": 400,
+    "imagen": "../img/papas-fritas.png",
+    "categoria": "acompañantes"
+  },
+  {
+    "id": 18,
+    "nombre": "papas fritas con cheddad y panceta",
+    "precio": 450,
+    "imagen": "../img/papas-con-cheddar-y-bacon.png",
+    "categoria": "acompañantes"
+  },
+  {
+    "id": 19,
+    "nombre": "papas fritas con huevo",
+    "precio": 450,
+    "imagen": "../img/papas-con-huevo.png",
+    "categoria": "acompañantes"
+  },
+  {
+    "id": 20,
+    "nombre": "ensalada completa",
+    "precio": 400,
+    "imagen": "../img/ensalada-completa.png",
+    "categoria": "acompañantes"
+  },
+  {
+    "id": 21,
+    "nombre": "ensalada caesar",
+    "precio": 400,
+    "imagen": "../img/ensalada-caesar.png",
+    "categoria": "acompañantes"
+  },
+  {
+    "id": 22,
+    "nombre": "ensalada especial",
+    "precio": 450,
+    "imagen": "../img/ensalada-especial.png",
+    "categoria": "acompañantes"
+  }
+]

@@ -1,149 +1,52 @@
-//Base de datos  simulada
-
-const productos = [
-  {
-    id: 1,
-    nombre: "pizza muzzarella",
-    precio: 700,
-    imagen: "../img/pizza-muzarella.png",
-    categoria: "pizzas",
-  },
-  {
-    id: 2,
-    nombre: "pizza napolitana",
-    precio: 750,
-    imagen: "../img/pizza-napo.png",
-    categoria: "pizzas",
-  },
-  {
-    id: 3,
-    nombre: "pizza fugazzeta",
-    precio: 780,
-    imagen: "../img/pizza-Fugazzeta.png",
-    categoria: "pizzas",
-  },
-  {
-    id: 4,
-    nombre: "pizza jamon",
-    precio: 780,
-    imagen: "../img/Pizza-Jamon.png",
-    categoria: "pizzas",
-  },
-  {
-    id: 5,
-    nombre: "hamburguesa simple",
-    precio: 800,
-    imagen: "../img/hambur-simple.png",
-    categoria: "hamburguesas",
-  },
-  {
-    id: 6,
-    nombre: "hamburguesa doble",
-    precio: 850,
-    imagen: "../img/hambur-doble.png",
-    categoria: "hamburguesas",
-  },
-  {
-    id: 7,
-    nombre: "hamburguesa criolla",
-    precio: 880,
-    imagen: "../img/hambur-criolla.png",
-    categoria: "hamburguesas",
-  },
-  {
-    id: 8,
-    nombre: "hamburguesa gran cheddar",
-    precio: 820,
-    imagen: "../img/hambur-gran-cheddar.png",
-    categoria: "hamburguesas",
-  },
-  {
-    id: 9,
-    nombre: "empanada de carne",
-    precio: 650,
-    imagen: "../img/empanada-carne.png",
-    categoria: "empanadas",
-  },
-  {
-    id: 10,
-    nombre: "empanada de jamon y queso",
-    precio: 650,
-    imagen: "../img/Empanada-Jamon-y-Queso.png",
-    categoria: "empanadas",
-  },
-  {
-    id: 11,
-    nombre: "sanguche de lomo",
-    precio: 550,
-    imagen: "../img/sanguche-Lomo.png",
-    categoria: "sanguches",
-  },
-  {
-    id: 12,
-    nombre: "sanguche de milanesa",
-    precio: 550,
-    imagen: "../img/sanguche-Mila.png",
-    categoria: "sanguches",
-  },
-  {
-    id: 13,
-    nombre: "sanguche de pollo",
-    precio: 550,
-    imagen: "../img/sanguche-Pollo.png",
-    categoria: "sanguches",
-  },
-  {
-    id: 14,
-    nombre: "sanguche vegetariano",
-    precio: 500,
-    imagen: "../img/sanguche-Vegetal.png",
-    categoria: "sanguches",
-  },
-  {
-    id: 15,
-    nombre: "papas fritas",
-    precio: 400,
-    imagen: "../img/papas-fritas.png",
-    categoria: "acompañantes",
-  },
-  {
-    id: 16,
-    nombre: "papas fritas con cheddad y panceta",
-    precio: 450,
-    imagen: "../img/papas-con-cheddar-y-bacon.png",
-    categoria: "acompañantes",
-  },
-  {
-    id: 17,
-    nombre: "ensalada completa",
-    precio: 400,
-    imagen: "../img/ensalada-completa.png",
-    categoria: "acompañantes",
-  },
-  {
-    id: 18,
-    nombre: "ensalada caesar",
-    precio: 400,
-    imagen: "../img/ensalada-caesar.png",
-    categoria: "acompañantes",
-  },
-];
-
 //Variables globales
 
 let carrito = [];
+let productosCargados = [];
 const divisa = "$";
 const DOMproductos = document.querySelector(".productos");
 const DOMcarrito = document.querySelector(".cart-content");
 const DOMTotalCarrito = document.querySelector(".total-price");
 const DOMVaciarCarrito = document.querySelector(".vaciar-cart");
 const finalizarCompra = document.querySelector(".btn-buy");
+const inputBuscador = document.querySelector("#buscador");
+const categorias = document.querySelector("#categorias");
+
+// /**
+//  * Recupera los productos desde la base de datos externa simulada
+//  */
+
+const url = "./data/productos.json";
+const recuperarProductos = async (URL) => {
+  const respuesta = await fetch(URL);
+  const productos = await respuesta.json();
+  cargarProductos(productos);
+};
+
+recuperarProductos(url);
+
+// /**
+//  * Carga los productos desde la base de datos externa simulada
+//  */
+
+function cargarProductos(productos) {
+  productos.forEach((producto) => {
+    let articulo = {
+      id: producto.id,
+      nombre: producto.nombre,
+      precio: producto.precio,
+      imagen: producto.imagen,
+      categoria: producto.categoria,
+    };
+    productosCargados.push(articulo);
+  });
+  constructorProductos(productosCargados);
+}
 
 // /**
 //  * Contruye todos los productos guardados en la base de datos
 //  */
 
-function constructorProductos() {
+function constructorProductos(productos) {
   productos.forEach((info) => {
     // Estructura
     const card = document.createElement("div");
@@ -169,14 +72,36 @@ function constructorProductos() {
     cardBoton.classList.add("add-cart");
     cardBoton.textContent = "Agregar al carrito";
     cardBoton.addEventListener("click", () => {
+      //agrega el producto clickeado al carrito
       carrito.push({
         id: info.id,
         imagen: info.imagen,
         nombre: info.nombre,
         precio: info.precio,
       });
-      localStorage.setItem("carrito", JSON.stringify(carrito));
       constructorCarrito();
+      //notificacion de producto agregado
+      toastr.success(
+        `${info.nombre}<br>$${info.precio}`,
+        `Producto agregado al carrito:<hr>`
+      );
+      toastr.options = {
+        closeButton: true,
+        debug: false,
+        newestOnTop: false,
+        progressBar: true,
+        positionClass: "toast-bottom-right",
+        preventDuplicates: false,
+        onclick: null,
+        showDuration: "300",
+        hideDuration: "1000",
+        timeOut: "5000",
+        extendedTimeOut: "1000",
+        showEasing: "swing",
+        hideEasing: "linear",
+        showMethod: "fadeIn",
+        hideMethod: "fadeOut",
+      };
     });
     // Inserto los componentes
     DOMproductos.appendChild(card);
@@ -188,6 +113,44 @@ function constructorProductos() {
     infoContainer.appendChild(cardBoton);
   });
 }
+
+// /**
+//  * Buscador de productos
+//  */
+
+function buscarProducto(arr, filtro) {
+  const filtrado = arr.filter((servicio) => {
+    return servicio.nombre.includes(filtro);
+  });
+  DOMproductos.textContent = "";
+  return constructorProductos(filtrado);
+}
+
+inputBuscador.addEventListener("keydown", () => {
+  buscarProducto(productosCargados, inputBuscador.value);
+});
+
+// /**
+//  * Filtro por categoria
+//  */
+
+function filtrarProducto(arr, filtro) {
+  const filtrado = arr.filter((servicio) => {
+    return servicio.categoria.includes(filtro);
+  });
+  DOMproductos.textContent = "";
+  return constructorProductos(filtrado);
+}
+
+categorias.addEventListener("change", () => {
+  let opcion = categorias.options[categorias.selectedIndex].value;
+  if (opcion == "todo") {
+    DOMproductos.textContent = "";
+    constructorProductos(productosCargados);
+  } else {
+    filtrarProducto(productosCargados, opcion);
+  }
+});
 
 // /**
 //  * Construye todos los productos guardados en el carrito
@@ -252,7 +215,7 @@ function constructorCarrito() {
 function borrarItemCarrito(evento) {
   // Obtengo el producto ID que hay en el boton pulsado
   const id = evento.target.dataset.item;
-  // Borro todos los productos
+  // Borro los productos seleccionados
   const item = carrito.find((productos) => productos.id === id);
   const indice = carrito.indexOf(item);
   carrito.splice(indice, 1);
@@ -291,7 +254,7 @@ function vaciarCarrito() {
 
 function terminarCompra() {
   //Verifica si el carrito esta vacio
-  if (DOMcarrito.textContent == "") {
+  if (carrito.length == 0) {
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -299,6 +262,8 @@ function terminarCompra() {
     });
   } else {
     location.href = "../pages/compra.html";
+    //guarda los productos comprados en el localstorage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
   }
 }
 
@@ -317,5 +282,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Inicio
-constructorProductos();
 constructorCarrito();

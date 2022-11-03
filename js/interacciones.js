@@ -1,4 +1,3 @@
-
 // variables de apertura y cerrar carrito
 
 const abrirCarrito = document.querySelector("#cart-icon");
@@ -17,3 +16,14 @@ closeCart.onclick = () => {
   cart.classList.remove("active");
 };
 
+//variables de abrir y cerrar los filtros
+
+const openFilter = document.querySelector(".open-filter");
+const categories = document.querySelector(".filter-menu");
+
+// abrir y cerrar el filtro
+
+openFilter.addEventListener("click", function () {
+  this.classList.toggle("active");
+  categories.classList.toggle("active");
+});

@@ -62,7 +62,6 @@ function guardarDatos() {
   };
 
   //Guardo los datos en localstorage
-  
 
   localStorage.setItem("personal", JSON.stringify(datosPersonales));
 
@@ -107,7 +106,7 @@ submit.addEventListener("click", (e) => {
   guardarDatos();
   localStorage.removeItem("carrito");
   layoutCompra.classList.add("none");
-  layoutFactura.classList.add("active")
+  layoutFactura.classList.add("active");
   constructorFactura();
 });
 
@@ -115,12 +114,11 @@ submit.addEventListener("click", (e) => {
 
 function constructorFactura() {
   const datos = JSON.parse(localStorage.getItem("personal"));
-  const datosTarjeta = JSON.parse(localStorage.getItem("tarjeta"));
-  const total=JSON.parse(localStorage.getItem("total"))
+  const total = JSON.parse(localStorage.getItem("total"));
   //Construccion de la factura
   //factura
-  const factura=document.createElement("div")
-  factura.classList.add("factura")
+  const factura = document.createElement("div");
+  factura.classList.add("factura");
   //Titulo de la factura
   const facturaTitulo = document.createElement("h2");
   facturaTitulo.textContent =
@@ -134,28 +132,24 @@ function constructorFactura() {
     "La orden de pedido y la factura ha sido envida a " + `${datos.correo}`;
   //total de pago
   const totalPago = document.createElement("p");
-  totalPago.textContent="El total de la compra es de: "+`${total}`
-  //tarjeta
-  const tarjeta = document.createElement("p");
-  tarjeta.textContent =
-    "El pago ha sido realizado con esta tarjeta: Titular: " +
-    `${datosTarjeta.titular}` +
-    " NRO de tarjeta: " + `${datosTarjeta.tarjeta}`;
-  //Link para regresar al principio
-  const regresarAlMenu=document.createElement("a")
-  regresarAlMenu.textContent="Regresar al Principio"
-  regresarAlMenu.setAttribute("href","../index.html")
+  totalPago.textContent = "El total de la compra es de: " + `${total}`;
+  //direccion
+  const direccion = document.createElement("p");
+  direccion.textContent = "El pedido sera enviado a: " + `${datos.direccion}`;
+  //boton para regresar al principio
+  const regresarAlMenu = document.createElement("a");
+  regresarAlMenu.textContent = "Regresar al Principio";
+  regresarAlMenu.setAttribute("href", "../index.html");
 
   //Inserto todo en el Html
-  layoutFactura.appendChild(factura)
+  layoutFactura.appendChild(factura);
   factura.appendChild(facturaTitulo);
   factura.appendChild(mensaje);
   factura.appendChild(revisaCorreo);
-  factura.appendChild(totalPago)
-  factura.appendChild(tarjeta);
-  factura.appendChild(regresarAlMenu)
+  factura.appendChild(totalPago);
+  factura.appendChild(direccion);
+  factura.appendChild(regresarAlMenu);
 }
-
 
 //inicializar la construccion del carrito
 constructorCarrito();

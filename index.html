@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="shortcut icon" href="img/icono.ico" type="image/x-icon">
+    <!-- links para toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>Inicio</title>
 </head>
@@ -21,10 +25,11 @@
         <div class="cart">
             <h2 class="cart-title">Tu carrito</h2>
             <div class="cart-content">
+                <!-- contenido dinamico desde js -->
             </div>
             <div class="total">
                 <div class="total-title">Total: $</div>
-                <div class="total-price">$0</div>
+                <div class="total-price"></div>
             </div>
             <div class="buttons">
                 <i class="bi bi-trash vaciar-cart"></i>
@@ -34,6 +39,29 @@
         </div>
     </header>
     <div class="grid-layout-products">
+        <aside class="aside">
+            <div class="filter-dropdown">
+                <p>Filtrar Por</p>
+                <i class="bi bi-caret-down-fill open-filter"></i>
+            </div>
+            <div class="filter-menu">
+                <div class="filter-section">
+                    <h3>Buscador</h3>
+                    <input type="text" name="" id="buscador" class="buscador" placeholder="Escribe lo que buscas">
+                </div>
+                <div class="filter-section">
+                    <h3>Categoria</h3>
+                    <select name="" id="categorias">
+                        <option value="todo">Todo</option>
+                        <option value="pizzas">Pizzas</option>
+                        <option value="hamburguesas">Hamburguesas</option>
+                        <option value="empanadas">Empanadas</option>
+                        <option value="sanguches">Sandwiches</option>
+                        <option value="acompañantes">Acompañantes</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
         <section class="productos">
             <!-- Contenido dinamico desde js -->
         </section>
