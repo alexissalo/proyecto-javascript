@@ -127,7 +127,7 @@ function buscarProducto(arr, filtro) {
 }
 
 inputBuscador.addEventListener("keydown", () => {
-  buscarProducto(productosCargados, inputBuscador.value);
+  buscarProducto(productosCargados, inputBuscador.value.toLowerCase());
 });
 
 // /**
